@@ -5,13 +5,88 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    
+    <script src="https://kit.fontawesome.com/32d517ada4.js" crossorigin="anonymous"></script>
+
     <link rel="stylesheet" href="src/styles.css">
     <title>Weather App by Reka Nagy</title>
 </head>
 <body>
     <div class="container">
-
+        <div class="weather-app">
+            <div class="search-bar">
+                <form id="search-form">
+                    <div class="row">
+                        <div class="col-9">
+                            <input 
+                                type="search"
+                                placeholder="Type a city..."
+                                class="form-control"
+                            />
+                        </div>
+                        <div class="col-3">
+                            <input 
+                                type="submit"
+                                value="Search"
+                                class="btn btn-primary w100"
+                            />
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <h1>Gråsten</h1>
+            <ul>
+                <li>Last updated, Thursday, 13:50</li>
+                <li>Clouds</li>
+            </ul>
+            <div class="row">
+                <div class="col-6">
+                    <i class="fa-solid fa-cloud main-icon"></i>
+                    13°C | °F
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    Feels like
+                    <div class="row">
+                        <div class="col">10°</div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    Air pressure
+                    <div class="row">
+                        <div class="col">1010Pa</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    Wind
+                    <div class="row">
+                        <div class="col">20km/h</div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    Humidity
+                    <div class="row">
+                        <div class="col">72%</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    Visibility
+                    <div class="row">
+                        <div class="col">15km</div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    UV
+                    <div class="row">
+                        <div class="col">week</div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <script src="src/app.js"></script>
 </body>
