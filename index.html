@@ -15,77 +15,84 @@
 </head>
 <body>
     <div class="container">
-        <div class="weather-app">
-            <div class="search-bar">
-                <form id="search-form">
-                    <div class="row">
-                        <div class="col-9">
-                            <input 
-                                type="search"
-                                placeholder="Type a city..."
-                                class="form-control"
-                            />
-                        </div>
-                        <div class="col-3">
-                            <input 
+        <div class="weather-app-wrapper">
+            <div class="weather-app">
+                <div class="search-bar">
+                    <form id="search-form">
+                        <div class="row">
+                            <div class="col-9">
+                                <input 
+                                    type="search"
+                                    placeholder="Type a city..."
+                                    class="form-control"
+                                />
+                            </div>
+                            <div class="col-3">
+                                <input 
                                 type="submit"
                                 value="Search"
-                                class="btn btn-primary w100"
-                            />
+                                class="btn btn-primary w100 search-button"
+                                />
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="main-location">
+                    <h1>Gråsten</h1>
+                    <ul>
+                        <li>Last updated, Thursday, 13:50</li>
+                        <li>Clouds</li>
+                    </ul>
+                </div>
+                <div class="row main-description">
+                    <div class="col">
+                        <div class="clearfix float-left">
+                            <i class="fa-solid fa-cloud main-icon"></i>
+                            <strong>13</strong>
+                            <small class="main-units">°C | °F</small> 
                         </div>
                     </div>
-                </form>
-            </div>
-            <h1>Gråsten</h1>
-            <ul>
-                <li>Last updated, Thursday, 13:50</li>
-                <li>Clouds</li>
-            </ul>
-            <div class="row">
-                <div class="col-6">
-                    <i class="fa-solid fa-cloud main-icon"></i>
-                    13°C | °F
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-6">
-                    Feels like
-                    <div class="row">
-                        <div class="col">10°</div>
+                <div class="row">
+                    <div class="col-6">
+                        Feels like
+                        <div class="row">
+                            <div class="col">10°</div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        Air pressure
+                        <div class="row">
+                            <div class="col">1010Pa</div>
+                        </div>
                     </div>
                 </div>
-                <div class="col-6">
-                    Air pressure
-                    <div class="row">
-                        <div class="col">1010Pa</div>
+                <div class="row">
+                    <div class="col-6">
+                        Wind
+                        <div class="row">
+                            <div class="col">20km/h</div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        Humidity
+                        <div class="row">
+                            <div class="col">72%</div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-6">
-                    Wind
-                    <div class="row">
-                        <div class="col">20km/h</div>
+                <div class="row">
+                    <div class="col-6">
+                        Visibility
+                        <div class="row">
+                            <div class="col">15km</div>
+                        </div>
                     </div>
-                </div>
-                <div class="col-6">
-                    Humidity
-                    <div class="row">
-                        <div class="col">72%</div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-6">
-                    Visibility
-                    <div class="row">
-                        <div class="col">15km</div>
-                    </div>
-                </div>
-                <div class="col-6">
-                    UV
-                    <div class="row">
-                        <div class="col">week</div>
+                    <div class="col-6">
+                        UV
+                        <div class="row">
+                            <div class="col">week</div>
+                        </div>
                     </div>
                 </div>
             </div>
