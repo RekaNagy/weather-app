@@ -56,28 +56,16 @@ li:first-letter {
     border: transparent;
     border-radius: 10px;
     padding: 10px 25px;
-    
-}
-
-.main-city {
-    font-size: 50px;
 }
 
 .clearfix .main-temperature {
-    font-size: 50px;
+    font-size: 70px;
     position: relative;
-    bottom: -14px;
+    bottom: -20px;
 }
 
 .clearfix .main-units {
     font-size: 15px;
     position: relative;
-    top: -10px;
+    top: -16px;
 }
-
-
-
-
-
-
-
