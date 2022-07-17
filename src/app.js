@@ -21,8 +21,10 @@ function displayMainDescription(response) {
     let mainDescriptionElement = document.querySelector("#main-description");
     mainDescriptionElement.innerHTML = response.data.weather[0].description;
     
+    mainTemperatureCelsius = response.data.main.temp;
+
     let mainTemperatureElement = document.querySelector("#main-temperature");
-    mainTemperatureElement.innerHTML = Math.round(response.data.main.temp);
+    mainTemperatureElement.innerHTML = Math.round(mainTemperatureCelsius);
 
     let mainDateElement = document.querySelector("#main-date");
     mainDateElement.innerHTML = formatDate(response.data.dt * 1000)
@@ -30,7 +32,6 @@ function displayMainDescription(response) {
     let mainIconElement = document.querySelector("#main-icon");
     mainIconElement.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
     mainIconElement.setAttribute("alt", response.data.weather[0].description)
-
 }
 
 function displayMainWeatherDetails(response) {
@@ -62,8 +63,32 @@ function handleSubmit(event) {
     search(cityInputElement.value);
 }
 
-search("Gråsten")
+function displayMainTemperatureFahreinheit(event) {
+    event.preventDefault();
+    let mainTemperatureElement = document.querySelector("#main-temperature");
+    mainTemperatureCelsiusLink.classList.remove("main-temperature-celsius-link")
+    mainTemperatureFahrenheitLink.classList.add("main-temperature-celsius-link")
+    let mainTemperatureFahreinheit = (mainTemperatureCelsius * 9) / 5 + 32;
+    mainTemperatureElement.innerHTML = Math.round(mainTemperatureFahreinheit);
+}
 
+function displayMainTemperatureCelsius (event) {
+    event.preventDefault();
+    mainTemperatureCelsiusLink.classList.add("main-temperature-celsius-link")
+    mainTemperatureFahrenheitLink.classList.remove("main-temperature-celsius-link")
+    let mainTemperatureElement = document.querySelector("#main-temperature");
+    mainTemperatureElement.innerHTML = Math.round(mainTemperatureCelsius);
+}
+
+let mainTemperatureCelsius = null;
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
+
+let mainTemperatureFahrenheitLink = document.querySelector("#main-temperature-fahrenheit-link");
+mainTemperatureFahrenheitLink.addEventListener("click", displayMainTemperatureFahreinheit);
+
+let mainTemperatureCelsiusLink = document.querySelector("#main-temperature-celsius-link");
+mainTemperatureCelsiusLink.addEventListener("click", displayMainTemperatureCelsius);
+
+search("Gråsten");

@@ -65,7 +65,19 @@ li:first-letter {
 }
 
 .clearfix .main-units {
-    font-size: 15px;
+    font-size: 20px;
     position: relative;
     top: -16px;
 }
+
+.main-temperature-celsius-link {
+    color: #212529;
+    cursor:default;
+}
+
+
+.main-temperature-celsius-link:hover {
+    text-decoration: none;
+    color: #212529;
+}
+
