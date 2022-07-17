@@ -14,8 +14,6 @@ function formatDate(timestamp) {
 }
 
 
-
-
 function displayMainDescription(response) {
     let mainCityElement = document.querySelector("#main-city");
     mainCityElement.innerHTML = response.data.name;
@@ -28,6 +26,10 @@ function displayMainDescription(response) {
 
     let mainDateElement = document.querySelector("#main-date");
     mainDateElement.innerHTML = formatDate(response.data.dt * 1000)
+
+    let mainIconElement = document.querySelector("#main-icon");
+    mainIconElement.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+    mainIconElement.setAttribute("alt", response.data.weather[0].description)
 
 }
 
@@ -43,7 +45,6 @@ function displayMainWeatherDetails(response) {
 
     let humidityElement = document.querySelector("#humidity");
     humidityElement.innerHTML = response.data.main.humidity + "%";
-
 }
 
 let apiKey = "1c9bea782c651831e80913359dee2953"
@@ -57,7 +58,6 @@ axios.get(apiUrl).then(displayMainWeatherDetails);
 function search(event) {
     event.preventDefault();
     let cityInutElement = document.querySelector("#city-input");
-
 }
 
 let form = document.querySelector("#search-form");
