@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=PT+Mono&display=swap" rel="stylesheet"> 
-    
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="src/styles.css">
     <title>Weather App by Reka Nagy</title>
 </head>
@@ -25,6 +25,7 @@
                                     type="search"
                                     placeholder="Type a city..."
                                     class="form-control"
+                                    id="city-input"
                                 />
                             </div>
                             <div class="col-3">
@@ -38,17 +39,17 @@
                     </form>
                 </div>
                 <div class="main-location">
-                    <h1>Gråsten</h1>
+                    <h1 id="main-city"></h1>
                     <ul>
-                        <li>Last updated, Thursday, 13:50</li>
-                        <li>Clouds</li>
+                        <li>Last updated, <span id="main-date"></span></li>
+                        <li id="main-description"></li>
                     </ul>
                 </div>
                 <div class="row main-description">
                     <div class="col">
                         <div class="clearfix">
                             <i class="fa-solid fa-cloud main-icon"></i>
-                            <strong>13</strong><small class="main-units">°C | °F</small> 
+                            <strong id="main-temperature"></strong><small class="main-units">°C | °F</small> 
                         </div>
                     </div>
                 </div>
@@ -56,13 +57,13 @@
                     <div class="col-6">
                         Feels like
                         <div class="row">
-                            <div class="col">10°</div>
+                            <div class="col" id="feels-like"></div>
                         </div>
                     </div>
                     <div class="col-6">
                         Air pressure
                         <div class="row">
-                            <div class="col">1010Pa</div>
+                            <div class="col" id="air-pressure"></div>
                         </div>
                     </div>
                 </div>
@@ -70,27 +71,13 @@
                     <div class="col-6">
                         Wind
                         <div class="row">
-                            <div class="col">20km/h</div>
+                            <div class="col" id="wind"></div>
                         </div>
                     </div>
                     <div class="col-6">
                         Humidity
                         <div class="row">
-                            <div class="col">72%</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-6">
-                        Visibility
-                        <div class="row">
-                            <div class="col">15km</div>
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        UV
-                        <div class="row">
-                            <div class="col">week</div>
+                            <div class="col" id="humidity"></div>
                         </div>
                     </div>
                 </div>
