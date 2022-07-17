@@ -47,7 +47,8 @@ function displayMainWeatherDetails(response) {
 }
 
 let apiKey = "1c9bea782c651831e80913359dee2953"
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=London&appid=${apiKey}&units=metric`;
+let city = "Gråsten"
+let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
 axios.get(apiUrl).then(displayMainDescription);
 axios.get(apiUrl).then(displayMainWeatherDetails);
