@@ -47,18 +47,23 @@ function displayMainWeatherDetails(response) {
     humidityElement.innerHTML = response.data.main.humidity + "%";
 }
 
-let apiKey = "1c9bea782c651831e80913359dee2953"
-let city = "Gråsten"
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
-axios.get(apiUrl).then(displayMainDescription);
-axios.get(apiUrl).then(displayMainWeatherDetails);
+function search(city) {
+    let apiKey = "1c9bea782c651831e80913359dee2953"
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
-
-function search(event) {
-    event.preventDefault();
-    let cityInutElement = document.querySelector("#city-input");
+    axios.get(apiUrl).then(displayMainDescription);
+    axios.get(apiUrl).then(displayMainWeatherDetails); 
 }
 
+function handleSubmit(event) {
+    event.preventDefault();
+    let cityInputElement = document.querySelector("#city-input");
+    search(cityInputElement.value);
+}
+
+search("Gråsten")
+
+
 let form = document.querySelector("#search-form");
-form.addEventListener("submit", search);
+form.addEventListener("submit", handleSubmit);
