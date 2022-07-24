@@ -13,6 +13,28 @@ function formatDate(timestamp) {
     return `${day} ${hours}:${minutes}`;
 }
 
+function displayWeatherForecast() {
+    let weatherForecastElement = document.querySelector("#weather-forecast");
+
+    let weatherForecastHTML = `<div class="row">`;
+    weatherForecastHTML = 
+        weatherForecastHTML + 
+        `
+
+            <div class="col-2">
+                <div class="forecast-days">Monday</div>
+                <img src="http://openweathermap.org/img/wn/04d@2x.png" alt="" width="50"/>
+                <div class="forecast-temp">
+                    <span class="forecast-temp-max">18°</span>/<span class="forecast-temp-min">10°</span>
+                </div>
+            </div>
+        
+        `;
+
+
+    weatherForecastHTML = weatherForecastHTML + `</div>`;
+    weatherForecastElement.innerHTML = weatherForecastHTML;  
+}
 
 function displayMainDescription(response) {
     let mainCityElement = document.querySelector("#main-city");
@@ -92,3 +114,4 @@ let mainTemperatureCelsiusLink = document.querySelector("#main-temperature-celsi
 mainTemperatureCelsiusLink.addEventListener("click", displayMainTemperatureCelsius);
 
 search("Gråsten");
+displayWeatherForecast();
