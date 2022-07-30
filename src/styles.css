@@ -27,18 +27,21 @@ li:first-letter {
     text-transform: capitalize;
 }
 .weather-app-wrapper {
-    max-width: 1000px;
+    max-width: 600px;
     margin: 30px 0px 30px 0px; 
+    
+    border-radius: 10px;
 }
 
 .weather-app {
     padding: 20px;
     border: 1px solid #dadde1;
     border-radius: 10px;
+    
 }
 
 .search-bar {
-    margin-bottom: 20px;
+    margin: 20px 0px 20px 0px;
 }
 
 .form-control {
