@@ -2,7 +2,6 @@ body {
     font-family: 'PT Mono', monospace;
 }
 
-
 h1 {
     font-size: 50px;
     font-weight: 900;
@@ -14,7 +13,6 @@ ul {
     margin: 0px;
     padding: 0px;
 }
-
 
 li {
     list-style: none;
@@ -35,9 +33,10 @@ li:first-letter {
 
 .weather-app {
     padding: 20px;
-    border: 1px solid #dadde1;
+    border: 1px solid #f0f0e4;
     border-radius: 10px;
-    
+    background-color: #f0f0e4;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
 }
 
 .search-bar {
@@ -45,39 +44,43 @@ li:first-letter {
 }
 
 .form-control {
-    background-color: #d1d1d1;
+    background-color:#68bde1;
     border:transparent;
     border-radius: 10px;
-    padding: 10px 15px;
+    padding: 10px 20px;
+}
+
+.form-control:hover {
+    filter: drop-shadow(2px 2px 2px rgb(0 0 0 / 0.4));
+    background-color: #68bde1;
 }
 
 .search-button {
     color: #212529;
-    background-color: #d1d1d1;
-    border: transparent;
+    background-color:#68bde1;
+    border:transparent;
     border-radius: 10px;
-    padding: 10px 15px;
+    padding: 10px 20px;
+}
+
+.search-button:hover {
+    background-color: #68bde1;
+    color: #ec6e4c;
+    filter: drop-shadow(1px 2px 2px rgb(0 0 0 / 0.4));
 }
 
 .location-dot-button {
-    color: #212529;
-    background-color: #d1d1d1;
-    border: transparent;
+    color:#212529;
+    border:transparent;
     border-radius: 10px;
-    padding: 10px 15px;
-    
-}
-.weather-forecast {
-    text-align: center;
-    margin-top: 20px;
+    padding: 10px 20px;
+    background-color:#68bde1;
 }
 
-.forecast-temp {
-    font-size: 16px;
-}
-
-.forecast-temp-min {
-    opacity: 0.6;
+.location-dot-button:hover {
+    background-color: #68bde1;
+    color: #ec6e4c;
+    filter: drop-shadow(1px 2px 2px rgb(0 0 0 / 0.4));
 }
 
 .clearfix .main-temperature {
@@ -96,7 +99,30 @@ li:first-letter {
     margin-bottom: 20px;
 }
 
+.main-icon {
+    border-radius: 15px;
+    background-color: #68bde1;
+}
 
+.weather-forecast {
+    text-align: left;
+    margin-top: 20px;
+}
+
+.forecast-icons {
+    max-width: 50px;
+    border-radius: 15px;
+    background-color: #68bde1;  
+}
+
+.forecast-temp {
+    font-size: 15px;
+    text-align: left;
+}
+
+.forecast-temp-min {
+    opacity: 0.6;
+}
 
 
 
