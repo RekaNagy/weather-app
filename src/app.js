@@ -18,8 +18,6 @@ function formatWeatherForecast(timestamp) {
     let weatherForecastDay = weatherForecastDate.getDay();
     let weatherForecastDays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat",];
 
-
-
     return weatherForecastDays[weatherForecastDay];
 }
 
@@ -115,5 +113,22 @@ function handleSubmit(event) {
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
 
+
+function searchCurrentLocation(position) {
+    let apiKey = "1c9bea782c651831e80913359dee2953";
+    let units = "metric";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=${units}`;
+  
+    axios.get(apiUrl).then(displayMainDescription);
+  }
+  
+  
+function getCurrent(event) {
+    event.preventDefault();
+    navigator.geolocation.getCurrentPosition(searchCurrentLocation);
+  }
+
+let currentLocButton = document.querySelector("#location-dot-button");
+currentLocButton.addEventListener("click", getCurrent);
 
 search("Gråsten");

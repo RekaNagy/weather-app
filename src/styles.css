@@ -29,7 +29,7 @@ li:first-letter {
 .weather-app-wrapper {
     max-width: 600px;
     margin: 30px 0px 30px 0px; 
-    
+    display: block;
     border-radius: 10px;
 }
 
@@ -48,7 +48,7 @@ li:first-letter {
     background-color: #d1d1d1;
     border:transparent;
     border-radius: 10px;
-    padding: 10px 25px;
+    padding: 10px 15px;
 }
 
 .search-button {
@@ -56,14 +56,21 @@ li:first-letter {
     background-color: #d1d1d1;
     border: transparent;
     border-radius: 10px;
-    padding: 10px 25px;
+    padding: 10px 15px;
 }
 
+.location-dot-button {
+    color: #212529;
+    background-color: #d1d1d1;
+    border: transparent;
+    border-radius: 10px;
+    padding: 10px 15px;
+    
+}
 .weather-forecast {
     text-align: center;
     margin-top: 20px;
 }
-
 
 .forecast-temp {
     font-size: 16px;
