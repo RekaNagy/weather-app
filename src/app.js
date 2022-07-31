@@ -13,27 +13,39 @@ function formatDate(timestamp) {
     return `${day} ${hours}:${minutes}`;
 }
 
+function formatWeatherForecast(timestamp) {
+    let weatherForecastDate = new Date(timestamp * 1000);
+    let weatherForecastDay = weatherForecastDate.getDay();
+    let weatherForecastDays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat",];
 
+
+
+    return weatherForecastDays[weatherForecastDay];
+}
 
 function displayWeatherForecast(response) {
+    let weatherForecast = response.data.daily;
     let weatherForecastElement = document.querySelector("#weather-forecast");
+
+    let days = ["Thu", "Fri", "Sat", "Sun", "Mon", "Tue"];
  
     let weatherForecastHTML = `<div class="row">`;
-    let days = ["Thu", "Fri", "Sat", "Sun", "Mon", "Tue"];
-    days.forEach(function(day) {
+    weatherForecast.forEach(function(forecastDay, index) {
+        if (index < 6) {
     weatherForecastHTML = 
         weatherForecastHTML + 
         `
 
             <div class="col-2">
-                <div class="forecast-days">${day}</div>
-                <img src="http://openweathermap.org/img/wn/04d@2x.png" alt="" width="50"/>
+                <div class="forecast-days">${formatWeatherForecast(forecastDay.dt)}</div>
+                <img src="http://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png" alt="" width="50"/>
                 <div class="forecast-temp">
-                    <span class="forecast-temp-max">18°</span>/<span class="forecast-temp-min">10°</span>
+                    <span class="forecast-temp-max">${Math.round(forecastDay.temp.max)}°</span>/<span class="forecast-temp-min">${Math.round(forecastDay.temp.min)}°</span>
                 </div>
             </div>
         
         `;
+        }
     });
 
     weatherForecastHTML = weatherForecastHTML + `</div>`;
@@ -42,8 +54,9 @@ function displayWeatherForecast(response) {
 
 function getForecast(coordinates) {
     let apiKey = "1c9bea782c651831e80913359dee2953"
-    let apiUrl = `https://api.openweathermap.org/data/3.0/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+    let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
     axios.get(apiUrl).then(displayWeatherForecast);
+    
 }
 
 function displayMainDescription(response) {
@@ -59,14 +72,14 @@ function displayMainDescription(response) {
     mainTemperatureElement.innerHTML = Math.round(mainTemperatureCelsius);
 
     let mainDateElement = document.querySelector("#main-date");
-    mainDateElement.innerHTML = formatDate(response.data.dt * 1000)
+    mainDateElement.innerHTML = formatDate(response.data.dt * 1000);
 
     let mainIconElement = document.querySelector("#main-icon");
     mainIconElement.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
-    mainIconElement.setAttribute("alt", response.data.weather[0].description)
-
+    mainIconElement.setAttribute("alt", response.data.weather[0].description);
 
     getForecast(response.data.coord);
+
 }
 
 function displayMainWeatherDetails(response) {
@@ -101,16 +114,16 @@ function handleSubmit(event) {
 function displayMainTemperatureFahreinheit(event) {
     event.preventDefault();
     let mainTemperatureElement = document.querySelector("#main-temperature");
-    mainTemperatureCelsiusLink.classList.remove("main-temperature-celsius-link")
-    mainTemperatureFahrenheitLink.classList.add("main-temperature-celsius-link")
+    mainTemperatureCelsiusLink.classList.remove("main-temperature-celsius-link");
+    mainTemperatureFahrenheitLink.classList.add("main-temperature-celsius-link");
     let mainTemperatureFahreinheit = (mainTemperatureCelsius * 9) / 5 + 32;
     mainTemperatureElement.innerHTML = Math.round(mainTemperatureFahreinheit);
 }
 
 function displayMainTemperatureCelsius (event) {
     event.preventDefault();
-    mainTemperatureCelsiusLink.classList.add("main-temperature-celsius-link")
-    mainTemperatureFahrenheitLink.classList.remove("main-temperature-celsius-link")
+    mainTemperatureCelsiusLink.classList.add("main-temperature-celsius-link");
+    mainTemperatureFahrenheitLink.classList.remove("main-temperature-celsius-link");
     let mainTemperatureElement = document.querySelector("#main-temperature");
     mainTemperatureElement.innerHTML = Math.round(mainTemperatureCelsius);
 }
@@ -127,4 +140,3 @@ let mainTemperatureCelsiusLink = document.querySelector("#main-temperature-celsi
 mainTemperatureCelsiusLink.addEventListener("click", displayMainTemperatureCelsius);
 
 search("Gråsten");
-displayWeatherForecast();
