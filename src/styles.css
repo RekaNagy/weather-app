@@ -60,15 +60,11 @@ li:first-letter {
 }
 
 .weather-forecast {
-    text-align: left;
+    text-align: center;
     margin-top: 20px;
 }
 
-.weather-forecast:hover {
-    background: #d1d1d1;
-    border-radius: 10px;
-    cursor: pointer;
-}
+
 .forecast-temp {
     font-size: 16px;
 }
@@ -83,24 +79,17 @@ li:first-letter {
     bottom: -20px;
 }
 
-.clearfix .main-units {
+.clearfix .main-unit {
     font-size: 20px;
     position: relative;
     top: -16px;
 }
 
-
 .main-description {
     margin-bottom: 20px;
 }
-.main-temperature-celsius-link {
-    color: #212529;
-    cursor:default;
-}
 
 
-.main-temperature-celsius-link:hover {
-    text-decoration: none;
-    color: #212529;
-}
+
+
 
